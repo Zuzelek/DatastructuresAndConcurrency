@@ -37,6 +37,7 @@ public class FileHandling {
         {
             System.out.println(nameIterator.next());
         }
+        System.out.println(words.size());
 
 
 
