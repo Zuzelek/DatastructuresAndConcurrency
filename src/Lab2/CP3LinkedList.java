@@ -2,6 +2,8 @@ package Lab2;
 
 import javax.lang.model.element.Element;
 import java.util.NoSuchElementException;
+
+import static sun.util.locale.LocaleUtils.isEmpty;
 //singly linked list with first reference only 
 
 /**
@@ -17,6 +19,15 @@ public class CP3LinkedList<E> {
 		public Node next;
 	}
 	private Node first;
+
+	public Node getLast() {
+		if(last == null)
+			throw new NoSuchElementException();
+
+
+	}
+
+	private Node last;
 		
 	/** 
     	Constructs an empty linked list.
@@ -36,6 +47,10 @@ public class CP3LinkedList<E> {
 		newLink.data = element;
 		newLink.next = first;
 		first = newLink;
+		if(last == null)
+		{
+			last = newLink;
+		}
 	}
 
 	public E getFirst() {
@@ -51,6 +66,28 @@ public class CP3LinkedList<E> {
 		first = first.next;
 		return element;
 	}
+	public void addLast(E element){
+
+		Node node = new Node();
+		node.data = element;
+		node.next = null;
+
+		if(isEmpty())
+		{
+			first = node;
+			last = node;
+		}
+		else{
+			last.next = node;
+			last = node;
+		}
+
+	}
+
+	private boolean isEmpty() {
+		return first == null;
+	}
+
 
 	public void print(){
            //outputs the data on the list
@@ -72,12 +109,12 @@ public class CP3LinkedList<E> {
 		}
 		return counter;
 	}
-	public boolean Contains(Element value){
-		Node currentState = first;
+	public boolean contains(E value){
+		Node current = first;
 
-		while (currentState != null)
+		while (current != null)
 		{
-			if(currentState.equals(value))
+			if(current.equals(value))
 			{
 				return true;
 			}
