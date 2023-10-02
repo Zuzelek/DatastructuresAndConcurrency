@@ -3,7 +3,7 @@ package Lab2;
 import javax.lang.model.element.Element;
 import java.util.NoSuchElementException;
 
-import static sun.util.locale.LocaleUtils.isEmpty;
+
 //singly linked list with first reference only 
 
 /**
@@ -25,6 +25,7 @@ public class CP3LinkedList<E> {
 			throw new NoSuchElementException();
 
 
+		return null;
 	}
 
 	private Node last;
